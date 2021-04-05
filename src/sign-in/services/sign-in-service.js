@@ -3,9 +3,6 @@ const qs = require("qs");
 const config = require("../config");
 
 const signInToKeyCloak = async ({ username, password }) => {
-  // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  //let d = JSON.parse(data);
-
   const body = {
     username,
     password,
@@ -14,7 +11,7 @@ const signInToKeyCloak = async ({ username, password }) => {
     child_secret: config.credentials.secret,
   };
   const url = `${config["auth-server-url"]}/realms/${config.realm}/protocol/openid-connect/token`;
-  console.log({ username, password, url });
+
   const response = await axios({
     method: "post",
     url,
