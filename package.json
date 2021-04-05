@@ -1,0 +1,54 @@
+{
+    "name": "keyclock-api-sample",
+    "version": "0.0.0",
+    "description": "",
+    "main": "src/handlers/index.js",
+    "scripts": {
+        "start": "serverless invoke local --function signIn",
+        "test": "jest",
+        "build": "serverless package",
+        "deploy": "serverless deploy",
+        "format": "prettier --config .prettierrc --check \"src/**/*.js\"",
+        "lint": "eslint \"src/**/*.js\" --quiet --fix"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "amazon-cognito-identity-js": "^4.5.11",
+        "aws-sdk": "^2.848.0",
+        "axios": "^0.21.1",
+        "dotenv": "^8.2.0",
+        "lambda-hooks": "^0.2.1",
+        "node-fetch": "1.7.3",
+        "qs": "^6.10.1",
+        "yup": "^0.32.9"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.20",
+        "dotenv-webpack": "^6.0.2",
+        "eslint": "^7.20.0",
+        "eslint-config-prettier": "^8.0.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "husky": "^5.1.0",
+        "jest": "^26.6.3",
+        "prettier": "^2.2.1",
+        "serverless": "^2.25.2",
+        "serverless-cognito-add-custom-attributes": "^0.3.0",
+        "serverless-dotenv-plugin": "^3.8.0",
+        "serverless-export-env": "arabold/serverless-export-env",
+        "serverless-webpack": "^5.3.5",
+        "webpack": "^5.24.2"
+    },
+    "lint-staged": {
+        "src/**/*.js": [
+            "yarn lint"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "npm run test"
+        }
+    }
+}

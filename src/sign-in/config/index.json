@@ -1,0 +1,11 @@
+{
+    "resource": "",
+    "auth-server-url": "",
+    "realm": "",
+    "public-client": true,
+    "enable-cors" : true,
+    "credentials": {
+      "secret": ""
+    }
+  }
+  

@@ -1,0 +1,25 @@
+service: apis
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
+
+functions:
+  signIn:
+    handler: src/index.signIn
+    events:
+      - http:
+          path: apis/sign-up
+          method: post
+          cors: true
